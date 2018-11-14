@@ -1,0 +1,25 @@
+{
+  "name": "huobipro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "ENV=dev ./node_modules/.bin/nodemon --harmony main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "pjsong",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.3.1",
+    "config": "^1.31.0",
+    "crypto-js": "^3.1.9-1",
+    "moment": "^2.13.0",
+    "pako": "^1.0.6",
+    "readline-sync": "^1.4.9",
+    "request": "^2.72.0",
+    "ws": "^3.2.0"
+  },
+  "execMap": {
+    "js": "node –harmony"
+  }
+}
