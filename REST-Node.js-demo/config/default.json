@@ -1,0 +1,144 @@
+{
+    "huobi": {
+        "api_key": "----your api key here----",
+        "secret_key": "----your secret key here----",
+        "url_prex": "https://api.hbdm.com"
+    },
+    "interfaces": {
+        "get_methods": [
+            {
+                "tip": "GET_1, 获取合约信息",
+                "intf_no": "g1",
+                "context_path": "/api/v1/contract_contract_info"
+            },
+            {
+                "tip": "GET_2, 获取合约指数信息",
+                "intf_no": "g2",
+                "context_path": "/api/v1/contract_index"
+            },
+            {
+                "tip": "GET_3, 获取合约最高限价和最低限价",
+                "intf_no": "g3",
+                "context_path": "/api/v1/contract_price_limit?symbol=BTC&contract_type=this_week"
+            },
+            {
+                "tip": "GET_4, 获取当前可用合约总持仓量",
+                "intf_no": "g4",
+                "context_path": "/api/v1/contract_open_interest"
+            },
+            {
+                "tip": "GET_5, 获取行情深度数据",
+                "intf_no": "g5",
+                "context_path": "/market/depth"
+            },
+            {
+                "tip": "GET_6, 获取K线数据",
+                "intf_no": "g6",
+                "context_path": "/market/history/kline?symbol=BTC_CQ&period=1min&size=200"
+            },
+            {
+                "tip": "GET_7, 获取聚合行情",
+                "intf_no": "g7",
+                "context_path": "/market/detail/merged?symbol=BTC_CQ"
+            },
+            {
+                "tip": "GET_8, 获取市场最近成交记录",
+                "intf_no": "g8",
+                "context_path": "/market/trade?symbol=BTC_CQ"
+            },
+            {
+                "tip": "GET_9, 批量获取最近的交易记录",
+                "intf_no": "g9",
+                "context_path": "/market/history/trade?symbol=BTC_CQ&size=100"
+            }
+        ],
+        "post_methods": [
+            {
+                "tip": "POST_1, 获取用户账户信息",
+                "intf_no": "p1",
+                "context_path": "/api/v1/contract_account_info",
+                "req_body": {"symbol": "BTC"}
+            },
+            {
+                "tip": "POST_2, 获取用户持仓信息",
+                "intf_no": "p2",
+                "context_path": "/api/v1/contract_position_info",
+                "req_body": {"symbol": "BTC"}
+            },
+            {
+                "tip": "POST_3, 合约下单",
+                "intf_no": "p3",
+                "context_path": "/api/v1/contract_order",
+                "req_body": {"symbol": "BTC", "contract_type": "next_week", 
+                    "client_order_id": "",  "contract_code": "BTC181109", 
+                    "price": "6306", "volume": "1", "direction": "buy", "offset": "open", 
+                    "lever_rate": "5", "order_price_type": "limit"}
+            },
+            {
+                "tip": "POST_4, 合约批量下单",
+                "intf_no": "p4",
+                "context_path": "/api/v1/contract_batchorder",
+                "req_body": {"orders_data":[
+                    {
+                        "symbol":"BTC",
+                        "contract_type":"this_week",
+                        "contact_code":"BTC181116",
+                       "client_order_id":"89",
+                        "price":6000,
+                        "volume":10,
+                        "direction":"buy",
+                        "offset":"open",
+                        "lever_rate":10,
+                        "order_price_type":"limit"
+                       },{
+                        "symbol":"BTC",
+                        "contract_type":"this_week",
+                        "contact_code":"BTC181116",
+                       "client_order_id":"199",
+                        "price":6000,
+                        "volume":1,
+                        "direction":"buy",
+                        "offset":"open",
+                        "lever_rate":10,
+                        "order_price_type":"limit"
+                       }
+                ]}},
+            {
+                "tip": "POST_5, 撤销订单",
+                "intf_no": "p5",
+                "context_path": "/api/v1/contract_cancel",
+                "req_body": {"symbol": "BTC", "order_id": "123456", "client_orderid":""}
+            },
+            {
+                "tip": "POST_6, 全部撤单",
+                "intf_no": "p6",
+                "context_path": "/api/v1/contract_cancelall",
+                "req_body": {"symbol": "BTC"}
+            },
+            {
+                "tip": "POST_7, 获取合约订单信息",
+                "intf_no": "p7",
+                "context_path": "/api/v1/contract_order_info",
+                "req_body": {"symbol": "BTC", "order_id": "4", "client_order_id": ""}
+            },
+            {
+                "tip": "POST_8, 获取订单明细信息",
+                "intf_no": "p8",
+                "context_path": "/api/v1/contract_order_detail",
+                "req_body": {"symbol": "BTC", "order_id": "12345", "created_at": 1490759594752}
+            },
+            {
+                "tip": "POST_9, 获取合约当前未成交委托",
+                "intf_no": "p9",
+                "context_path": "/api/v1/contract_openorders",
+                "req_body": {"symbol": "BTC"}
+            },
+            {
+                "tip": "POST_10, 获取合约历史委托",
+                "intf_no": "p10",
+                "context_path": "/api/v1/contract_hisorders",
+                "req_body": {"symbol": "BTC", "trade_type": 0, "type": 1, "status": 0, "create_date": 7}
+            }
+        ]
+    }
+}
