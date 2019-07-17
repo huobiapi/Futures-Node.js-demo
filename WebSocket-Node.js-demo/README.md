@@ -14,7 +14,6 @@ main.js
 ```
 npm install
 node main.js
-API调试过程中有问题或者有疑问可反馈微信号shaoxiaofeng1118
 ```
 
 输入`h`获得帮助, 输入`s1`, `s2`...测试socket, `r1`, `r2`...测试请求
