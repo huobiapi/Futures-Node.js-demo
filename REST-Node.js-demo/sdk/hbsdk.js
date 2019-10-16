@@ -6,6 +6,7 @@ var HmacSHA256 = require('crypto-js/hmac-sha256')
 var http = require('../framework/httpClient');
 var url = require('url');
 var config = require('config');
+var JSONbig = require('json-bigint');
 
 // const URL = 'https://api.huobipro.com';
 
@@ -47,10 +48,10 @@ function call_get(tip, path){
         timeout: 1000,
         headers: DEFAULT_HEADERS
     }).then(data => {
-        let json = JSON.parse(data);
+        let json = JSONbig.parse(data);
         if (json.status == 'ok') {
             var outputStr = tip + "......" + path + "\r\n";
-            Array.isArray(json.data) ? json.data.forEach(e=>{outputStr += JSON.stringify(e)+'\r\n'}): outputStr+=JSON.stringify(json);
+            Array.isArray(json.data) ? json.data.forEach(e=>{outputStr += JSONbig.stringify(e)+'\r\n'}): outputStr+=JSONbig.stringify(json);
             console.log(outputStr);
         } else {
             console.log('调用错误', tip, "......",  path, "......", json.data);
@@ -66,9 +67,11 @@ function call_post(tip, path, payload, body){
             timeout: 1000,
             headers: DEFAULT_HEADERS
         }).then(data => {
-            let json = JSON.parse(data);
+            let json = JSONbig.parse(data);
             if (json.status == 'ok') {
-                console.log(tip + '.........' + path, json.data);
+                var outputStr = tip + "......" + path + "\r\n";
+                Array.isArray(json.data) ? json.data.forEach(e=>{outputStr += JSONbig.stringify(e)+'\r\n'}): outputStr+=JSONbig.stringify(json);
+                console.log(outputStr);
             } else {
                 console.log(tip + '调用status'+ json.status, json, "\r\n", tip, '......', path, "  结束\r\n");
             }
