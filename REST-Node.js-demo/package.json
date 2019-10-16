@@ -17,7 +17,8 @@
     "pako": "^1.0.6",
     "readline-sync": "^1.4.9",
     "request": "^2.72.0",
-    "ws": "^3.2.0"
+    "ws": "^3.2.0",
+    "json-bigint": "^0.3.0"
   },
   "execMap": {
     "js": "node –harmony"
